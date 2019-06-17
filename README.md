@@ -1,4 +1,4 @@
-<h4> Trabalho Engenharia II - Uniritter <h4>
+<h4> Trabalho Engenharia II - Uniritter </h4>
 
 O sistema é sobre uma Biblioteca e foi implementado uma parte do sistema conforme solicitado.
 Para gerenciar as dependências utilizei o Gradle.
