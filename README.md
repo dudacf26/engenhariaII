@@ -36,7 +36,6 @@ Utilizei o Framework **JUnit** para elaboração dos testes.
 
 BibliotecaTest: testa adicionarLivros,Listar todos os livros, buscar por autor, e buscar por ID.
 
-![Resultado de imagem para junit](https://store.modelio.org/images/logos/logo_junit.png)
 ------------------------
 **Integração Continua:**
 Para fazer a Integração utilizei o **Jenkis**.
