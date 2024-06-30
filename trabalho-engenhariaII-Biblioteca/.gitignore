@@ -10,4 +10,4 @@
 /.metadata/
 /.recommenders/
 /out/
-/.idea/
+/.idea/!/.idea/
