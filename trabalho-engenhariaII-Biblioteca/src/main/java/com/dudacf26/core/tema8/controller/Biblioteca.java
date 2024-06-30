@@ -9,10 +9,9 @@ import com.dudacf26.core.tema8.GeradorDeId;
 import com.dudacf26.core.tema8.dominio.Livro;
 
 public class Biblioteca {
-	private List<Livro> gerenciaDelivros;
+	private final List<Livro> gerenciaDelivros;
 	private GeradorDeId geradorId;
 	private static Biblioteca instance;
-
 
 	private void inicializaGerador() {
 		int idInicial = 0;
@@ -30,7 +29,7 @@ public class Biblioteca {
 	}
 
 	public Biblioteca() {
-		this.gerenciaDelivros = new ArrayList<Livro>();
+		this.gerenciaDelivros = new ArrayList<>();
 	}
 
 	public void adicionarLivro(String titulo, String autor) { inicializaGerador();
@@ -44,10 +43,15 @@ public class Biblioteca {
 	}
 
 	public List<Livro> buscarLivroPorAutor(String nome) {
-		List<Livro> livrosEncontrados = new ArrayList<>();
-		livrosEncontrados = gerenciaDelivros.stream()
-				.filter(l -> l.getAutor().toLowerCase().contains(nome.toLowerCase())).collect(Collectors.toList());
-		return livrosEncontrados;
+        List<Livro> livrosEncontrados = new ArrayList<>();
+        for (Livro l : gerenciaDelivros) {
+            if (l.getAutor()
+                 .toLowerCase()
+                 .contains(nome.toLowerCase())) {
+                livrosEncontrados.add(l);
+            }
+        }
+        return livrosEncontrados;
 	}
 
 	public Optional<Livro> buscarLivroPorId(int id) {
@@ -61,23 +65,23 @@ public class Biblioteca {
 	}
 
 	public List<Livro> buscarLivroTitulo(String titulo) {
-		List<Livro> livrosEncontrados = new ArrayList<>();
-		livrosEncontrados = gerenciaDelivros.stream()
-				.filter(l -> l.getTitulo().toLowerCase().contains(titulo.toLowerCase())).collect(Collectors.toList());
-		return livrosEncontrados;
+        List<Livro> livrosEncontrados = new ArrayList<>();
+        for (Livro l : gerenciaDelivros) {
+            if (l.getTitulo()
+                 .toLowerCase()
+                 .contains(titulo.toLowerCase())) {
+                livrosEncontrados.add(l);
+            }
+        }
+        return livrosEncontrados;
 	}
 
-	public boolean excluirLivro(int id) {
+	public void excluirLivro(int id) {
 		for (Livro livro : gerenciaDelivros) {
 			if (livro.getId() == id) {
 				gerenciaDelivros.remove(livro);
-				return true;
+				return;
 			}
 		}
-		return false;
 	}
-
-
-
-
 }

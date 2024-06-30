@@ -1,12 +1,12 @@
-apply plugin: 'java-library'
+plugins {
+    id 'java-library'
+}
 
 repositories {
-    jcenter()
+    mavenCentral()
 }
 
 dependencies {
-    compile 'com.google.code.gson:gson:2.8.0'
-
-    testImplementation 'junit:junit:4.12'
+    implementation 'com.google.code.gson:gson:2.11.0'
+    testImplementation 'junit:junit:4.13.2'
 }
-
